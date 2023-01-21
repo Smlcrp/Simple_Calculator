@@ -3,7 +3,9 @@ var num1, num2, result, resAsString;
 function customAlertDelete() {
   var alertMessage = document.querySelector('.alert-message');
 
-  alertMessage.style.display = "none"; 
+  if(alertMessage.style.display == "block") {
+    alertMessage.style.display = "none"
+  } 
 }
 
 function showCustomAlert(message) {
@@ -15,6 +17,14 @@ function showCustomAlert(message) {
   alertMessage.style.display = "block";
 
 
+}
+
+function displayResult(resAsString) {
+  if(resAsString.value) {
+    showCustomAlert("Congratulations! your answer is: " + resAsString);
+  }else {
+    showCustomAlert("Sorry I Dont Know The Answer");
+  }
 }
 
 function performOperation(operation) {
@@ -34,15 +44,11 @@ function performOperation(operation) {
 
   resAsString = result.toString();
 
+  displayResult(resAsString);
+
   //document.getElementById("result").innerHTML = result;
   //showCustomAlert("Congratulations on using the calculator! Your answer is " + resAsString);
 }
 
-function displayResult(resAsString) {
-  if(resAsString = "") {
-    showCustomAlert("Congratulations! your answer is: " + resAsString);
-  }else {
-    showCustomAlert("Sorry I Dont Know The Answer");
-  }
-}
+
 
