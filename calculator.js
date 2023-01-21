@@ -1,16 +1,20 @@
-var num1, num2, result;
+var num1, num2, result, resAsString;
+
+function customAlertDelete() {
+  var alertMessage = document.querySelector('.alert-message');
+
+  alertMessage.style.display = "none"; 
+}
 
 function showCustomAlert(message) {
   var alertMessage = document.querySelector('.alert-message');
   var alertMessageText = document.querySelector('.alert-message-text');
-  var alertMessageClose = document.querySelector('.alert-message-close');
+  
   
   alertMessageText.innerHTML = message;
   alertMessage.style.display = "block";
 
-  alertMessageClose.onclick = function() {
-    alertMessage.style.display = "none";
-  }
+
 }
 
 function performOperation(operation) {
@@ -28,8 +32,17 @@ function performOperation(operation) {
     result = num1 / num2;
   }
 
-  document.getElementById("result").innerHTML = result;
-  showCustomAlert("Congratulations on using the calculator! Your answer is " + result);
-  setTimeout(function(){ alertMessage.style.display = "none"; }, 10000);
+  resAsString = result.toString();
+
+  //document.getElementById("result").innerHTML = result;
+  //showCustomAlert("Congratulations on using the calculator! Your answer is " + resAsString);
+}
+
+function displayResult(resAsString) {
+  if(resAsString = "") {
+    showCustomAlert("Congratulations! your answer is: " + resAsString);
+  }else {
+    showCustomAlert("Sorry I Dont Know The Answer");
+  }
 }
 
